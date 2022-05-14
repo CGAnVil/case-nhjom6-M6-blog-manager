@@ -1,0 +1,74 @@
+<div class="hold-transition sidebar-mini">
+  <div class="wrapper">
+    <app-navbar></app-navbar>
+    <app-sidebar></app-sidebar>
+    <div class="content-wrapper">
+      <section class="content-header">
+        <div class="container-fluid">
+          <div class="row mb-2">
+            <div class="col-sm-6">
+              <h1>List User</h1>
+            </div>
+            <div class="col-sm-6">
+              <ol class="breadcrumb float-sm-right">
+                <li class="breadcrumb-item"><a routerLink="/">Home</a></li>
+                <li class="breadcrumb-item active">List User</li>
+              </ol>
+            </div>
+          </div>
+        </div><!-- /.container-fluid -->
+      </section>
+      <section class="content">
+        <div class="row">
+          <div class="col-12">
+            <div class="card">
+              <!-- /.card-header -->
+              <div class="card-body">
+                <table id="user-list" class="table table-bordered table-hover">
+                  <thead>
+                  <tr>
+                    <th>#</th>
+                    <th>User name</th>
+                    <th>Avatar</th>
+                    <th>Full name</th>
+                    <th>Status</th>
+                    <th>Block</th>
+                  </tr>
+                  </thead>
+                  <tbody>
+                  <ng-container *ngFor="let user of users, index as i">
+                    <tr>
+                      <td>{{i + 1}}</td>
+                      <td>{{user.userName}}</td>
+                      <td></td>
+                      <td>{{user.fullName}}</td>
+                      <td>{{user.status.name}}</td>
+                      <td class="text-center">
+                        <button class="btn btn-danger" (click)="blockUser(user.id)">
+                          <span class="fa-solid fa-ban"></span>
+                        </button>
+                      </td>
+                    </tr>
+                  </ng-container>
+                  </tbody>
+                  <tfoot>
+                  <tr>
+                    <th>#</th>
+                    <th>User name</th>
+                    <th>Avatar</th>
+                    <th>Full name</th>
+                    <th>Status</th>
+                    <th>Block</th>
+
+                  </tr>
+                  </tfoot>
+                </table>
+              </div>
+              <!-- /.card-body -->
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+  </div>
+</div>
