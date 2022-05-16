@@ -24,4 +24,12 @@ export class UserService {
   deleteUser(id: number): Observable<User> {
     return this.http.delete<User>(`${API_URL}/users/${id}`);
   }
+
+  unBlockUser(id: number): Observable<User> {
+    return this.http.delete<User>(`${API_URL}/users/${id}/unBlockUser`);
+  }
+
+  updateUser(id, user): Observable<User> {
+    return this.http.post<User>(`${API_URL}/users/${id}`, user);
+  }
 }

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {User} from '../../../model/user';
 import {UserService} from '../../../service/user/user.service';
 
@@ -6,8 +6,6 @@ declare var $: any;
 
 declare var Swal: any;
 
-// let currentId = localStorage.getItem('id');
-// currentId = JSON.parse(currentId);
 
 @Component({
   selector: 'app-list-user',
@@ -17,7 +15,8 @@ declare var Swal: any;
 export class ListUserComponent implements OnInit {
   users: User[] = [];
 
-  constructor(private adminService: UserService) { }
+  constructor(private adminService: UserService) {
+  }
 
   ngOnInit() {
     this.getAll();
@@ -53,7 +52,7 @@ export class ListUserComponent implements OnInit {
   blockUser(id: number) {
     Swal.fire({
       title: 'Are you sure?',
-      text: "You won't be able to revert this!",
+      text: 'You won\'t be able to revert this!',
       icon: 'warning',
       showCancelButton: true,
       confirmButtonColor: '#3085d6',
@@ -62,17 +61,26 @@ export class ListUserComponent implements OnInit {
     }).then((result) => {
       if (result.isConfirmed) {
         this.adminService.deleteUser(id).subscribe(() => {
-          console.log("Block success");
+          console.log('Block success');
           this.getAllAfterBlock();
         }, error => {
-          console.log("Block error");
+          console.log('Block error');
         });
         Swal.fire(
           'Deleted!',
           'Your file has been deleted.',
           'success'
-        )
+        );
       }
-    })
+    });
+  }
+
+  unBlockUser(id: number) {
+    this.adminService.unBlockUser(id).subscribe(() => {
+      console.log('unBlock success');
+      this.getAllAfterBlock();
+    }, error => {
+      console.log('unBlock error');
+    });
   }
 }

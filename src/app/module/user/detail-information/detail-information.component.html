@@ -7,12 +7,12 @@
         <div class="container-fluid">
           <div class="row mb-2">
             <div class="col-sm-6">
-              <h1>List User</h1>
+              <h1>User Information</h1>
             </div>
             <div class="col-sm-6">
               <ol class="breadcrumb float-sm-right">
                 <li class="breadcrumb-item"><a routerLink="/">Home</a></li>
-                <li class="breadcrumb-item active">List User</li>
+                <li class="breadcrumb-item active">User Information</li>
               </ol>
             </div>
           </div>
@@ -24,45 +24,41 @@
             <div class="card">
               <!-- /.card-header -->
               <div class="card-body">
-                <table id="user-list" class="table table-bordered table-hover">
+                <table id="detail-information" class="table table-bordered table-hover">
                   <thead>
                   <tr>
-                    <th>#</th>
                     <th>User name</th>
+                    <th>Email</th>
                     <th>Avatar</th>
                     <th>Full name</th>
-                    <th>Status</th>
-                    <th>Block</th>
+                    <th>Address</th>
+                    <th>Phone</th>
+                    <th>Edit</th>
                   </tr>
                   </thead>
                   <tbody>
-                  <ng-container *ngFor="let user of users, index as i">
                     <tr>
-                      <td>{{i + 1}}</td>
                       <td>{{user.userName}}</td>
-                      <td></td>
+                      <td>{{user.email}}</td>
+                      <td>{{user.avatar}}</td>
                       <td>{{user.fullName}}</td>
-                      <td>{{user.status.name}}</td>
-                      <td class="text-center">
-                        <button [hidden]="user.status.name == 'InActive'" class="btn btn-danger" (click)="blockUser(user.id)">
-                          <span><i class="fa-solid fa-lock"></i></span>
-                        </button>
-                        <button [hidden]="user.status.name == 'Active'" class="btn btn-primary" (click)="unBlockUser(user.id)">
-                          <span><i class="fa-solid fa-lock-open"></i></span>
+                      <td>{{user.address}}</td>
+                      <td>{{user.phone}}</td>
+                      <td>
+                        <button class="btn btn-primary" routerLink="/users/edit">
+                          <span class="fa fa-edit"></span>
                         </button>
                       </td>
-                    </tr>
-                  </ng-container>
                   </tbody>
                   <tfoot>
                   <tr>
-                    <th>#</th>
                     <th>User name</th>
+                    <th>Email</th>
                     <th>Avatar</th>
                     <th>Full name</th>
-                    <th>Status</th>
-                    <th>Block</th>
-
+                    <th>Address</th>
+                    <th>Phone</th>
+                    <th>Edit</th>
                   </tr>
                   </tfoot>
                 </table>
@@ -75,3 +71,4 @@
     </div>
   </div>
 </div>
+
