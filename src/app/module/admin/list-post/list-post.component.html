@@ -37,7 +37,7 @@
                     <th>Comment</th>
                     <th>Status</th>
                     <th>State</th>
-                    <th>Delete</th>
+                    <th>Action</th>
                   </tr>
                   </thead>
                   <tbody>
@@ -54,8 +54,11 @@
                       <td>{{post.status.name}}</td>
                       <td>{{post.state.name}}</td>
                       <td class="text-center">
-                        <button class="btn btn-danger" (click)="blockPost(post.id)">
-                          <span class="fa-solid fa-ban"></span>
+                        <button [hidden]="post.state.name == 'InActive'" class="btn btn-danger" (click)="blockPost(post.id)">
+                          <span><i class="fa-solid fa-lock"></i></span>
+                        </button>
+                        <button [hidden]="post.state.name == 'Active'" class="btn btn-primary" (click)="unblockPost(post.id, {})">
+                          <span><i class="fa-solid fa-lock-open"></i></span>
                         </button>
                       </td>
                     </tr>
@@ -73,7 +76,7 @@
                     <th>Comment</th>
                     <th>Status</th>
                     <th>State</th>
-                    <th>Delete</th>
+                    <th>Action</th>
                   </tr>
                   </tfoot>
                 </table>

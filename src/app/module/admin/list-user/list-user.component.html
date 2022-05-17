@@ -32,7 +32,7 @@
                     <th>Avatar</th>
                     <th>Full name</th>
                     <th>Status</th>
-                    <th>Block</th>
+                    <th>Action</th>
                   </tr>
                   </thead>
                   <tbody>
@@ -44,10 +44,12 @@
                       <td>{{user.fullName}}</td>
                       <td>{{user.status.name}}</td>
                       <td class="text-center">
-                        <button [hidden]="user.status.name == 'InActive'" class="btn btn-danger" (click)="blockUser(user.id)">
+                        <button [hidden]="user.status.name == 'InActive'" class="btn btn-danger"
+                                (click)="blockUser(user.id)">
                           <span><i class="fa-solid fa-lock"></i></span>
                         </button>
-                        <button [hidden]="user.status.name == 'Active'" class="btn btn-primary" (click)="unBlockUser(user.id)">
+                        <button [hidden]="user.status.name == 'Active'" class="btn btn-primary"
+                                (click)="unBlockUser(user.id)">
                           <span><i class="fa-solid fa-lock-open"></i></span>
                         </button>
                       </td>
@@ -61,8 +63,7 @@
                     <th>Avatar</th>
                     <th>Full name</th>
                     <th>Status</th>
-                    <th>Block</th>
-
+                    <th>Action</th>
                   </tr>
                   </tfoot>
                 </table>

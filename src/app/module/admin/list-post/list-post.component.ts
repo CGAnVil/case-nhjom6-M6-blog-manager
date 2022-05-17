@@ -72,4 +72,13 @@ export class ListPostComponent implements OnInit {
       }
     })
   }
+
+  unblockPost(id, {}) {
+    this.postService.unblockPost(id, {}).subscribe(() => {
+      console.log("UnblockPost success");
+      this.getAllAfterBlockPost();
+    }, error => {
+      console.log("Unblock fail");
+    })
+  }
 }
