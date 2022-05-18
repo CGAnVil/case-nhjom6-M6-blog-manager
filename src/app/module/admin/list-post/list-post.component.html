@@ -27,35 +27,32 @@
                 <table id="post-list" class="table table-bordered table-hover">
                   <thead>
                   <tr>
-<!--                    <th>#</th>-->
+                    <th>#</th>
                     <th>User name</th>
                     <th>Date created</th>
                     <th>Title</th>
-                    <th>Avatar</th>
                     <th>Description</th>
-                    <th>Like</th>
-                    <th>Comment</th>
                     <th>Status</th>
                     <th>State</th>
-                    <th>Delete</th>
+                    <th>Action</th>
                   </tr>
                   </thead>
                   <tbody>
                   <ng-container *ngFor="let post of posts, index as i">
                     <tr>
-<!--                      <td>{{i + 1}}</td>-->
+                      <td>{{i + 1}}</td>
                       <td>{{post.user.userName}}</td>
-                      <td>{{post.dateCreate}}</td>
+                      <td>{{post.dateCreate | date:'MM/dd/yyyy'}}</td>
                       <td>{{post.title}}</td>
-                      <td>{{post.avatarPost}}</td>
                       <td>{{post.description}}</td>
-                      <td></td>
-                      <td></td>
                       <td>{{post.status.name}}</td>
                       <td>{{post.state.name}}</td>
                       <td class="text-center">
-                        <button class="btn btn-danger" (click)="blockPost(post.id)">
-                          <span class="fa-solid fa-ban"></span>
+                        <button [hidden]="post.state.name == 'InActive'" class="btn btn-danger" (click)="blockPost(post.id)">
+                          <span><i class="fa-solid fa-lock"></i></span>
+                        </button>
+                        <button [hidden]="post.state.name == 'Active'" class="btn btn-primary" (click)="unblockPost(post.id, {})">
+                          <span><i class="fa-solid fa-lock-open"></i></span>
                         </button>
                       </td>
                     </tr>
@@ -63,17 +60,14 @@
                   </tbody>
                   <tfoot>
                   <tr>
-<!--                    <th>#</th>-->
+                    <th>#</th>
                     <th>User name</th>
                     <th>Date created</th>
                     <th>Title</th>
-                    <th>Avatar</th>
                     <th>Description</th>
-                    <th>Like</th>
-                    <th>Comment</th>
                     <th>Status</th>
                     <th>State</th>
-                    <th>Delete</th>
+                    <th>Action</th>
                   </tr>
                   </tfoot>
                 </table>
