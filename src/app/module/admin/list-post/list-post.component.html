@@ -43,8 +43,8 @@
                   <tbody>
                   <ng-container *ngFor="let post of posts, index as i">
                     <tr>
-<!--                      <td>{{i + 1}}</td>-->
-                      <td>{{post.user.userName}}</td>
+                      <td>{{i + 1}}</td>
+
                       <td>{{post.dateCreate}}</td>
                       <td>{{post.title}}</td>
                       <td>{{post.avatarPost}}</td>
@@ -53,6 +53,7 @@
                       <td></td>
                       <td>{{post.status.name}}</td>
                       <td>{{post.state.name}}</td>
+                      <td>{{post.user.userName}}</td>
                       <td class="text-center">
                         <button class="btn btn-danger" (click)="blockPost(post.id)">
                           <span class="fa-solid fa-ban"></span>
