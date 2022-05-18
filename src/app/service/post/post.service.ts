@@ -36,6 +36,10 @@ export class PostService {
   deletePost(id): Observable<Post>{
     return this.http.delete<Post>(`${API_URL}/posts/${id}`);
   }
+
+  unblockPost(id, {}): Observable<Post>{
+    return this.http.put<Post> (`${API_URL}/posts/${id}`, {});
+  }
 }
 
 
