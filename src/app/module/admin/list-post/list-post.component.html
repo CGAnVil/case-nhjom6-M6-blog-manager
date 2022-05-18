@@ -27,14 +27,11 @@
                 <table id="post-list" class="table table-bordered table-hover">
                   <thead>
                   <tr>
-<!--                    <th>#</th>-->
+                    <th>#</th>
                     <th>User name</th>
                     <th>Date created</th>
                     <th>Title</th>
-                    <th>Avatar</th>
                     <th>Description</th>
-                    <th>Like</th>
-                    <th>Comment</th>
                     <th>Status</th>
                     <th>State</th>
                     <th>Action</th>
@@ -43,14 +40,11 @@
                   <tbody>
                   <ng-container *ngFor="let post of posts, index as i">
                     <tr>
-<!--                      <td>{{i + 1}}</td>-->
+                      <td>{{i + 1}}</td>
                       <td>{{post.user.userName}}</td>
-                      <td>{{post.dateCreate}}</td>
+                      <td>{{post.dateCreate | date:'MM/dd/yyyy'}}</td>
                       <td>{{post.title}}</td>
-                      <td>{{post.avatarPost}}</td>
                       <td>{{post.description}}</td>
-                      <td></td>
-                      <td></td>
                       <td>{{post.status.name}}</td>
                       <td>{{post.state.name}}</td>
                       <td class="text-center">
@@ -66,14 +60,11 @@
                   </tbody>
                   <tfoot>
                   <tr>
-<!--                    <th>#</th>-->
+                    <th>#</th>
                     <th>User name</th>
                     <th>Date created</th>
                     <th>Title</th>
-                    <th>Avatar</th>
                     <th>Description</th>
-                    <th>Like</th>
-                    <th>Comment</th>
                     <th>Status</th>
                     <th>State</th>
                     <th>Action</th>
