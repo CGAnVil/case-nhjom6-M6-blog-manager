@@ -42,11 +42,11 @@
                       <td>{{user.fullName}}</td>
                       <td>{{user.status.name}}</td>
                       <td class="text-center">
-                        <button [hidden]="user.status.name == 'InActive'" class="btn btn-danger"
+                        <button [hidden]="user.status.id == '2'" class="btn btn-danger"
                                 (click)="blockUser(user.id)">
                           <span><i class="fa-solid fa-lock"></i></span>
                         </button>
-                        <button [hidden]="user.status.name == 'Active'" class="btn btn-primary"
+                        <button [hidden]="user.status.id == '1'" class="btn btn-primary"
                                 (click)="unBlockUser(user.id)">
                           <span><i class="fa-solid fa-lock-open"></i></span>
                         </button>

@@ -48,10 +48,10 @@
                       <td>{{post.status.name}}</td>
                       <td>{{post.state.name}}</td>
                       <td class="text-center">
-                        <button [hidden]="post.state.name == 'InActive'" class="btn btn-danger" (click)="blockPost(post.id)">
+                        <button [hidden]="post.state.name == 'INACTIVE'" class="btn btn-danger" (click)="blockPost(post.id)">
                           <span><i class="fa-solid fa-lock"></i></span>
                         </button>
-                        <button [hidden]="post.state.name == 'Active'" class="btn btn-primary" (click)="unblockPost(post.id, {})">
+                        <button [hidden]="post.state.name == 'ACTIVE'" class="btn btn-primary" (click)="unblockPost(post.id, {})">
                           <span><i class="fa-solid fa-lock-open"></i></span>
                         </button>
                       </td>
